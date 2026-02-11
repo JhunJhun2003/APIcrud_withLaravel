@@ -10,6 +10,10 @@ use App\Http\Controllers\PostController;
 
 Route::apiResource("posts", PostController::class);
 
+Route::post("/register", [App\Http\Controllers\AuthController::class, 'Register']);
+Route::post("/login", [App\Http\Controllers\AuthController::class, 'Login']);
+Route::post("/logout", [App\Http\Controllers\AuthController::class, 'Logout'])->middleware('auth:sanctum');
+
 
 // Route::get("/posts", function () {
 //     return 'API is working';
