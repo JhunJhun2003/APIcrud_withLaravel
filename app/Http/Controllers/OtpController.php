@@ -49,11 +49,11 @@ class OtpController extends Controller
                 );
             });
             
-            return response()->json(['message' => 'OTP has been sent to your email! Check Mail box']);
+            return response()->json(['message' => 'OTP has been sent to your email! Check Mail box','code' => $token], 200);
             
         } catch (\Exception $e) {
             Log::error('OTP sending error: ' . $e->getMessage());
-            return response()->json(['message' => 'Failed to send OTP. Error: ' . $e->getMessage(),'code' => $token ], 500);
+            return response()->json(['message' => 'Failed to send OTP. Error: ' . $e->getMessage() ], 500);
         }
     }
     
