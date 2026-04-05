@@ -42,7 +42,7 @@ class OtpController extends Controller
             
             Mail::send('otpemail', $emailData, function ($message) use ($request) {
                 $message->to($request->email);
-                $message->subject('OTP from todolist - ' . config('app.name', 'Flutter Login'));
+                $message->subject('OTP from flutter team for login');
                 $message->from(
                     config('mail.from.address', 'noreply@Flutter.app'),
                     config('mail.from.name', config('app.name'))
