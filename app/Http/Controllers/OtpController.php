@@ -36,15 +36,15 @@ class OtpController extends Controller
             $emailData = [
                 'otp' => $token,
                 'email' => $request->email,
-                'appName' => config('app.name', 'TodoList App'),
+                'appName' => config('app.name', 'Flutter Login'),
                 'expiryTime' => '60 minutes',
             ];
             
             Mail::send('otpemail', $emailData, function ($message) use ($request) {
                 $message->to($request->email);
-                $message->subject('OTP from todolist - ' . config('app.name', 'TodoList'));
+                $message->subject('OTP from todolist - ' . config('app.name', 'Flutter Login'));
                 $message->from(
-                    config('mail.from.address', 'noreply@noretodolist.asia'),
+                    config('mail.from.address', 'noreply@Flutter.app'),
                     config('mail.from.name', config('app.name'))
                 );
             });
