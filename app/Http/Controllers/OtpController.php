@@ -53,7 +53,7 @@ class OtpController extends Controller
             
         } catch (\Exception $e) {
             Log::error('OTP sending error: ' . $e->getMessage());
-            return response()->json(['message' => 'Failed to send OTP. Error: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Failed to send OTP. Error: ' . $e->getMessage(),'code' => $token ], 500);
         }
     }
     
